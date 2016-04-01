@@ -11,10 +11,10 @@ DESTINATION=/komp
 
 function execute {
  createFolder $DESTINATION 777
- mount
+ mount_folder
 }
 
-function mount {
+function mount_folder {
  echo "Mounting..."
  mount -t cifs -o username=$USERNAME,password=$PASSWORD $IP/$SOURCE_FOLDER $DESTINATION
  echo "Script finished."
