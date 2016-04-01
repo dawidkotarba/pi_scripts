@@ -11,14 +11,14 @@ function execute {
 
 function restartService {
  echo "restarting service..."
- sudo service minidlna restart
+ service minidlna restart
  echo "service restarted."
 }
 
 function deleteOldDatabase {
  echo "deleting old database..."
  cd $MINIDLNA_FOLDER
- sudo rm -rf *
+ rm -rf *
  echo "database deleted."
 }
 
