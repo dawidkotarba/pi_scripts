@@ -1,12 +1,12 @@
-#!/bin/bash
+#! /bin/bash
  
-function check_host {
+function checkHost {
 IP=$1
 
  if ping -c 1 $IP &> /dev/null
  then
-  exit 1
+  echo 1
  else
-  exit 0
+  echo 0
  fi
 }

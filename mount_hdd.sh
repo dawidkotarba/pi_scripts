@@ -1,6 +1,6 @@
 #! /bin/bash
 
-SCRIPT_PATH=${0%/*}
+SCRIPT_PATH=$(dirname $0)
 source $SCRIPT_PATH/create_folder.sh
 
 DESTINATION=/shared
