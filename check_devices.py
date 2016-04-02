@@ -10,12 +10,14 @@ devices = {'router': '192.168.7.77',
 
 def check_devices(hostmap):
 
+ prefix = "--> "
+ 
  for k, v in hostmap.iteritems():
 
   if check_host.is_pingable(v) == True:
-   print(k, ": pingable")
+   print prefix + k + ": pingable."
   else:
-   print(k, ": unreachable")
+   print prefix + k + ": unreachable."
 
 
 check_devices(devices)
