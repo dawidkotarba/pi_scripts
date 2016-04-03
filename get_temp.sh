@@ -6,18 +6,17 @@ source $SCRIPT_PATH/count_lines.sh
 
 LOG_DIR=/logs
 OUT_FILENAME=temp.log
+MAX_ENTRIES=100
 
 execute() {
  local fileName=$LOG_DIR/$OUT_FILENAME
- local maxTempEntries=100
-
  createFolder /logs 755
 
  echo "Writing temperature to file..."
  countLines $fileName
  local currentEntries=$?
 
-if [ $currentEntries > $maxTempEntries ]; then
+if [ $currentEntries > $MAX_ENTRIES ]; then
   getCurrentTemp > $fileName
  else
   getCurrentTemp >> $fileName
