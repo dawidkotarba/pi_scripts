@@ -6,7 +6,6 @@ source $SCRIPT_PATH/count_lines.sh
 
 LOG_DIR=/logs
 OUT_FILENAME=temp.log
-MAX_ENTRIES=100
 
 execute() {
  createFolder /logs 755
@@ -21,7 +20,7 @@ writeToFile(){
  countLines $fileName
  local currentEntries=$?
 
-if [ $currentEntries -gt $MAX_ENTRIES ]; then
+if [ $currentEntries -gt 100 ]; then
   getCurrentTemp > $fileName
  else
   getCurrentTemp >> $fileName
