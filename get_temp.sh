@@ -1,6 +1,6 @@
 #! /bin/bash
 
-SCRIPT_PATH=$(dirname $0)
+SCRIPT_PATH=$(dirname $0)/includes
 source $SCRIPT_PATH/create_folder.sh
 
 LOG_DIR=/logs
