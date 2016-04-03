@@ -10,7 +10,7 @@ IP=192.168.7.80
 SOURCE_FOLDER=shared
 DESTINATION=/komp
 
-function execute {
+execute() {
  local isHostAvailable=$(checkHost $IP)
 
  if [ $isHostAvailable="1" ]; then
@@ -22,7 +22,7 @@ function execute {
  fi
 }
 
-function mount_folder {
+mount_folder() {
  echo "Mounting..."
  mount -t cifs -o username=$USERNAME,password=$PASSWORD //$IP/$SOURCE_FOLDER $DESTINATION
  echo "Script finished."

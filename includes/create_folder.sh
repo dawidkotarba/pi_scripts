@@ -1,6 +1,6 @@
 #! /bin/bash
 
-function createFolder {
+createFolder() {
 
  DESTINATION=$1
  DESTINATION_RIGHTS=$2

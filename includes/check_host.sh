@@ -1,6 +1,6 @@
 #! /bin/bash
  
-function checkHost {
+checkHost() {
 IP=$1
 
  if ping -c 1 $IP &> /dev/null

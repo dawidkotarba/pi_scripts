@@ -2,20 +2,20 @@
 
 MINIDLNA_FOLDER=/var/lib/minidlna
 
-function execute {
+execute() {
  echo "Starting minidlna refresh."
  deleteOldDatabase
  restartService
  echo "Script executed."
 }
 
-function restartService {
+restartService() {
  echo "restarting service..."
  service minidlna restart
  echo "service restarted."
 }
 
-function deleteOldDatabase {
+deleteOldDatabase() {
  echo "deleting old database..."
  cd $MINIDLNA_FOLDER
  rm -rf *
