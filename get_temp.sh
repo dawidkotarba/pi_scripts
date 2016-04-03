@@ -9,20 +9,24 @@ OUT_FILENAME=temp.log
 MAX_ENTRIES=100
 
 execute() {
- local fileName=$LOG_DIR/$OUT_FILENAME
  createFolder /logs 755
+ writeToFile
+ echo "Script finished."
+}
+
+writeToFile(){
+ local fileName=$LOG_DIR/$OUT_FILENAME
 
  echo "Writing temperature to file..."
  countLines $fileName
  local currentEntries=$?
 
-if [ $currentEntries > $MAX_ENTRIES ]; then
+if [ $currentEntries -gt $MAX_ENTRIES ]; then
   getCurrentTemp > $fileName
  else
   getCurrentTemp >> $fileName
  fi
 
- echo "Script finished."
 }
 
 getCurrentTemp() {
