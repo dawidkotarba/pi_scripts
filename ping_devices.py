@@ -9,16 +9,30 @@ devices = {'router': '192.168.7.77',
            'bridge': '192.168.7.88',
            'tv': '192.168.7.81'}
 
+
 def ping_devices(hostmap):
 
- prefix = "--> "
- 
- for k, v in hostmap.iteritems():
+ separatorLenght = 60
+ reachable = {}
+ unreachable = {} 
 
+ for k, v in hostmap.iteritems():
   if ping_host.is_pingable(v) == True:
-   print prefix + k + ": pingable."
+   reachable[k] = v
   else:
-   print prefix + k + ": unreachable."
+   unreachable[k] = v
+ 
+ print_line(separatorLenght)
+ print "Reachable: ", reachable.keys()
+ print "Unreachable: ", unreachable.keys()
+ print_line(separatorLenght)
+
+
+def print_line(chars):
+ line = ''
+ for c in range(chars):
+  line = line + '-'
+ print line
 
 
 ping_devices(devices)
