@@ -29,10 +29,10 @@ execute() {
   commit
   echo "maps pushed."
   cleanup
-  echo `date`: Maps refreshed > $fileName
+  echo `date`: Maps refreshed >> $fileName
  else
   echo "$IP is not available. Skipping mount process"
-  echo `date`: Host unreachable > $fileName
+  echo `date`: Host unreachable >> $fileName
  fi
 }
 
