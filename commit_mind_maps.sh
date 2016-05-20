@@ -12,8 +12,12 @@ GIT_CLONE_DIR=/temp/MindMaps
 SOURCE_DIR=Dropbox/Aplikacje/MindMaps
 DESTINATION=/komp/MindMaps
 
+LOG_DIR=/logs
+OUT_FILENAME=commit_maps.log
+
 execute() {
  local isHostAvailable=$(checkHost $IP)
+ local fileName=$LOG_DIR/$OUT_FILENAME
 
  if [ $isHostAvailable="1" ]; then
   echo "$IP is available. Proceeding with mounting..."
@@ -25,8 +29,10 @@ execute() {
   commit
   echo "maps pushed."
   cleanup
+  echo `date`: Maps refreshed > $fileName
  else
   echo "$IP is not available. Skipping mount process"
+  echo `date`: Host unreachable > $fileName
  fi
 }
 
