@@ -19,7 +19,7 @@ execute() {
  local isHostAvailable=$(checkHost $IP)
  local fileName=$LOG_DIR/$OUT_FILENAME
 
- if [ $isHostAvailable="1" ]; then
+ if [ "$isHostAvailable" == "1" ]; then
   echo "$IP is available. Proceeding with mounting..."
   createFolder $DESTINATION 777
   mount_folder

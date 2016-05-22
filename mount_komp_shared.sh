@@ -13,7 +13,7 @@ DESTINATION=/komp
 execute() {
  local isHostAvailable=$(checkHost $IP)
 
- if [ $isHostAvailable="1" ]; then
+ if [ "$isHostAvailable" == "1" ]; then
   echo "$IP is available. Proceeding with mounting..."
   createFolder $DESTINATION 777
   mount_folder
